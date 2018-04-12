@@ -10,4 +10,12 @@ public class MessageStore {
     public MessageStore() {
         message = "Hello Struts User";
     }
+
+    public String toString(){
+        return message+" (from toString)";
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
