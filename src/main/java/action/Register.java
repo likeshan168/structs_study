@@ -1,6 +1,7 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import exceptions.SecurityBreachException;
 import model.Person;
 
 public class Register extends ActionSupport {
@@ -8,7 +9,25 @@ public class Register extends ActionSupport {
     private Person personBean;
 
     public String execute() throws Exception{
-        return SUCCESS;
+        throw new SecurityBreachException(
+                "Security breach exception thrown from throwSecurityException");
+//        return SUCCESS;
+    }
+
+    public void throwException() throws Exception{
+        throw new Exception("Exception thrown from thrownException");
+    }
+
+    public void throwNullPointerException() throws NullPointerException {
+
+        throw new NullPointerException("Null Pointer Exception thrown from "
+                + Register.class.toString());
+    }
+
+    public void throwSecurityException() throws SecurityBreachException {
+
+        throw new SecurityBreachException(
+                "Security breach exception thrown from throwSecurityException");
     }
 
     public Person getPersonBean(){
